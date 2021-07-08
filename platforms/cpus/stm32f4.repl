@@ -60,6 +60,12 @@ gpioPortE: GPIOPort.STM32_GPIOPort @ sysbus <0x40021000, +0x400>
 gpioPortF: GPIOPort.STM32_GPIOPort @ sysbus <0x40021400, +0x400>
     [0-15] -> exti@[0-15]
 
+gpioPortG: GPIOPort.STM32_GPIOPort @ sysbus <0x40021800, +0x400>
+    [0-15] -> exti@[0-15]
+
+gpioPortI: GPIOPort.STM32_GPIOPort @ sysbus <0x40022400, +0x400>
+    [0-15] -> exti@[0-15]
+
 ethernet: Network.SynopsysEthernetMAC @ sysbus 0x40028000
     -> nvic@61
 
@@ -166,3 +172,4 @@ sysbus:
         ApplySVD @https://dl.antmicro.com/projects/renode/svd/STM32F40x.svd.gz
         Tag <0x40021000, 0x40021003> "GPIOE_MODER" 0xFFFFFFFF
         Tag <0x40021004, 0x40021007> "GPIOE_OTYPER" 0x00000008
+        Tag <0x40007004, 0x40007007> "PWR_CSR" 0x00004000
